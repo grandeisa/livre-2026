@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://f3po5pogkv2b"
-path="res://.godot/imported/navigation.svg-b818dc65a51fc6508c6f3405a7e0cdc8.ctex"
+uid="uid://mo3hnbk3ffjs"
+path="res://.godot/imported/height_sub.svg-1a14a9bb856f3db0faa02dba3c807b50.ctex"
 metadata={
 "has_editor_variant": true,
 "vram_texture": false
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://thirdparty/addons/terrain_3d/icons/navigation.svg"
-dest_files=["res://.godot/imported/navigation.svg-b818dc65a51fc6508c6f3405a7e0cdc8.ctex"]
+source_file="res://addons/terrain_3d/icons/height_sub.svg"
+dest_files=["res://.godot/imported/height_sub.svg-1a14a9bb856f3db0faa02dba3c807b50.ctex"]
 
 [params]
 

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mo3hnbk3ffjs"
-path="res://.godot/imported/height_sub.svg-b920e19fa614371f87ff02da63beecce.ctex"
+uid="uid://bu3q0645kb3el"
+path="res://.godot/imported/height_mul.svg-2dca20fa42a85408713e9bfe411f3c79.ctex"
 metadata={
 "has_editor_variant": true,
 "vram_texture": false
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://thirdparty/addons/terrain_3d/icons/height_sub.svg"
-dest_files=["res://.godot/imported/height_sub.svg-b920e19fa614371f87ff02da63beecce.ctex"]
+source_file="res://addons/terrain_3d/icons/height_mul.svg"
+dest_files=["res://.godot/imported/height_mul.svg-2dca20fa42a85408713e9bfe411f3c79.ctex"]
 
 [params]
 

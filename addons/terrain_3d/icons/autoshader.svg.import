@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsmaxekrmnuy2"
-path="res://.godot/imported/holes.svg-0c5207ad4f2320415dcd7ba8109f6824.ctex"
+uid="uid://bdwolwswwy8wr"
+path="res://.godot/imported/autoshader.svg-9998e61bbc6afd5b134b767acd17a425.ctex"
 metadata={
 "has_editor_variant": true,
 "vram_texture": false
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://thirdparty/addons/terrain_3d/icons/holes.svg"
-dest_files=["res://.godot/imported/holes.svg-0c5207ad4f2320415dcd7ba8109f6824.ctex"]
+source_file="res://addons/terrain_3d/icons/autoshader.svg"
+dest_files=["res://.godot/imported/autoshader.svg-9998e61bbc6afd5b134b767acd17a425.ctex"]
 
 [params]
 

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://duo8valena3a2"
-path="res://.godot/imported/texture_paint.svg-d559bc1250995187b937d1dfa19cb8ea.ctex"
+uid="uid://cjlcl5lf20ve0"
+path="res://.godot/imported/multimesh.svg-5487b93b04ddbaae37b5d3e91f10750b.ctex"
 metadata={
 "has_editor_variant": true,
 "vram_texture": false
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://thirdparty/addons/terrain_3d/icons/texture_paint.svg"
-dest_files=["res://.godot/imported/texture_paint.svg-d559bc1250995187b937d1dfa19cb8ea.ctex"]
+source_file="res://addons/terrain_3d/icons/multimesh.svg"
+dest_files=["res://.godot/imported/multimesh.svg-5487b93b04ddbaae37b5d3e91f10750b.ctex"]
 
 [params]
 
