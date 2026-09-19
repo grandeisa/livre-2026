@@ -1,16 +1,16 @@
 class_name Player extends CharacterBody2D
 
 
-const GROUNDED_SPEED: float = 300.0
-const UNGROUNDED_SPEED: float = 175.0
+const GROUNDED_SPEED: float = 155.0
+const UNGROUNDED_SPEED: float = 125.0
 const JUMP_VELOCITY = -300.0
-const JUMP_MIN_VELOCITY_ON_JUMP_EARLY_STOP = -50.0
+const JUMP_MIN_VELOCITY_ON_JUMP_EARLY_STOP = -100.0
 const GRAVITY = Vector2(0, 980.0)
 
 @onready var sprite = $Sprite2D
 
 var input_direction: Vector2 = Vector2.ZERO
-var device: int = 0
+var device: int = MultiInput.KEYBOARD
 
 var current_speed: float = GROUNDED_SPEED
 var can_move: bool = true

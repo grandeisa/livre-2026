@@ -1,4 +1,4 @@
-# Tasks
+# tasks
 
 |  Task |  Type |  Est. time |  Done |
 |---|---|---|---|
