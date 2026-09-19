@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://b3awclke3r58p" path="res://sprites/placeholder-character.png" id="2_paw1w"]
 [ext_resource type="Script" uid="uid://66v7ps1a5u3x" path="res://scripts/state_machine.gd" id="4_x4b8f"]
 [ext_resource type="Script" uid="uid://xo2bp6yt00y7" path="res://scripts/player-states/grounded.gd" id="5_tmr53"]
+[ext_resource type="Script" uid="uid://cdv428ajfwhow" path="res://scripts/player-states/jump.gd" id="6_qcd3b"]
+[ext_resource type="Script" uid="uid://bpoji822stba6" path="res://scenes/fall.gd" id="7_88ety"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_paw1w"]
 texture = ExtResource("1_2venv")
@@ -46,4 +48,12 @@ _current_state = NodePath("Grounded")
 
 [node name="Grounded" type="Node" parent="Player/State Machine" unique_id=1710151840 node_paths=PackedStringArray("player")]
 script = ExtResource("5_tmr53")
+player = NodePath("../..")
+
+[node name="Jump" type="Node" parent="Player/State Machine" unique_id=879693727 node_paths=PackedStringArray("player")]
+script = ExtResource("6_qcd3b")
+player = NodePath("../..")
+
+[node name="Fall" type="Node" parent="Player/State Machine" unique_id=971332276 node_paths=PackedStringArray("player")]
+script = ExtResource("7_88ety")
 player = NodePath("../..")
