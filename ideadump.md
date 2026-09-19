@@ -22,10 +22,17 @@ A game where you have to take damage to deal damage
 - goal is to remain alive for as long as possible
 - a nice challenge is to calculate the damage you'll receive from enemies on the fly to know if it will end your run or just give you a nice amount in the gauge
 
-## idea 3
+## idea 3 ← Chosen idea
 
 A fast-paced party game where you have to die before your oponents
 - single-screen platformer
 - you **have** to attack every few seconds and it does not work to just attack a wall
 - characters can attack, heal and apply knockback to enemies
 - maybe attacks are used in both facing and back sides of player to avoid attacking walls
+- weirdly, seems like the simplest to make, as the focus is on the player controller and it's supposed to use a camera with a fixed position
+
+Initially, this game could work like Stick Fight: The Game, and not have a set end to matches, just an ongoing score
+
+- Could be interesting to use the knockback "power" to push randomized weapons onto other players to make them deal more damage
+- Undead characters could be a good theme
+- could i make this game with only black, white and one accent color per character?

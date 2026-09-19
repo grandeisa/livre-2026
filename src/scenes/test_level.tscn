@@ -1,0 +1,39 @@
+[gd_scene format=4 uid="uid://dfop5yqcnoktm"]
+
+[ext_resource type="Texture2D" uid="uid://bub5u1k4esaq8" path="res://sprites/placeholder-tile.png" id="1_2venv"]
+[ext_resource type="Script" uid="uid://cbtuxmi0bt671" path="res://scripts/player.gd" id="2_j6w7d"]
+[ext_resource type="Texture2D" uid="uid://b3awclke3r58p" path="res://sprites/placeholder-character.png" id="2_paw1w"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_paw1w"]
+texture = ExtResource("1_2venv")
+texture_region_size = Vector2i(8, 8)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+
+[sub_resource type="TileSet" id="TileSet_7r5hg"]
+tile_size = Vector2i(8, 8)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_paw1w")
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7r5hg"]
+radius = 2.0
+height = 14.0
+
+[node name="TestLevel" type="Node2D" unique_id=1354510782]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1776182887]
+tile_map_data = PackedByteArray("AADx/wkAAAAAAAAAAADx/woAAAAAAAAAAADy/wkAAAAAAAAAAADy/woAAAAAAAAAAADz/wkAAAAAAAAAAADz/woAAAAAAAAAAAD0/wkAAAAAAAAAAAD0/woAAAAAAAAAAAD1/wkAAAAAAAAAAAD1/woAAAAAAAAAAAD2/wkAAAAAAAAAAAD2/woAAAAAAAAAAAD3/wkAAAAAAAAAAAD3/woAAAAAAAAAAAD4/wkAAAAAAAAAAAD4/woAAAAAAAAAAAD5/wkAAAAAAAAAAAD5/woAAAAAAAAAAAD6/wkAAAAAAAAAAAD6/woAAAAAAAAAAAD7/wkAAAAAAAAAAAD7/woAAAAAAAAAAAD8/wkAAAAAAAAAAAD8/woAAAAAAAAAAAD9/wkAAAAAAAAAAAD9/woAAAAAAAAAAAD+/wkAAAAAAAAAAAD+/woAAAAAAAAAAAD//wkAAAAAAAAAAAD//woAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAAoAAAAAAAAAAAABAAkAAAAAAAAAAAABAAoAAAAAAAAAAAACAAkAAAAAAAAAAAACAAoAAAAAAAAAAAADAAkAAAAAAAAAAAADAAoAAAAAAAAAAAAEAAkAAAAAAAAAAAAEAAoAAAAAAAAAAAAFAAkAAAAAAAAAAAAFAAoAAAAAAAAAAAAGAAkAAAAAAAAAAAAGAAoAAAAAAAAAAAAHAAkAAAAAAAAAAAAHAAoAAAAAAAAAAAAIAAkAAAAAAAAAAAAIAAoAAAAAAAAAAAAJAAkAAAAAAAAAAAAJAAoAAAAAAAAAAAAKAAkAAAAAAAAAAAAKAAoAAAAAAAAAAAALAAkAAAAAAAAAAAALAAoAAAAAAAAAAAAMAAkAAAAAAAAAAAAMAAoAAAAAAAAAAAANAAkAAAAAAAAAAAANAAoAAAAAAAAAAAAMAAMAAAAAAAAAAAAMAAQAAAAAAAAAAAAMAAUAAAAAAAAAAAAMAAYAAAAAAAAAAAAMAAcAAAAAAAAAAAAMAAgAAAAAAAAAAAANAAMAAAAAAAAAAAANAAQAAAAAAAAAAAANAAUAAAAAAAAAAAANAAYAAAAAAAAAAAANAAcAAAAAAAAAAAANAAgAAAAAAAAAAAAKAAMAAAAAAAAAAAAKAAQAAAAAAAAAAAALAAMAAAAAAAAAAAALAAQAAAAAAAAAAAAHAAYAAAAAAAAAAAAIAAYAAAAAAAAAAADx/wIAAAAAAAAAAADx/wMAAAAAAAAAAADx/wQAAAAAAAAAAADx/wUAAAAAAAAAAADx/wYAAAAAAAAAAADx/wcAAAAAAAAAAADx/wgAAAAAAAAAAADy/wIAAAAAAAAAAADy/wMAAAAAAAAAAADy/wQAAAAAAAAAAADy/wUAAAAAAAAAAADy/wYAAAAAAAAAAADy/wcAAAAAAAAAAADy/wgAAAAAAAAAAADz/wYAAAAAAAAAAAD0/wYAAAAAAAAAAAD4/wcAAAAAAAAAAAD5/wcAAAAAAAAAAAD7/wUAAAAAAAAAAAD8/wUAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_7r5hg")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1203405555]
+zoom = Vector2(3, 3)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1259900401]
+script = ExtResource("2_j6w7d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=340212625]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_7r5hg")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1290532705]
+texture = ExtResource("2_paw1w")
