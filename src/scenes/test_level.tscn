@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://bub5u1k4esaq8" path="res://sprites/placeholder-tile.png" id="1_2venv"]
 [ext_resource type="Script" uid="uid://cbtuxmi0bt671" path="res://scripts/player.gd" id="2_j6w7d"]
 [ext_resource type="Texture2D" uid="uid://b3awclke3r58p" path="res://sprites/placeholder-character.png" id="2_paw1w"]
+[ext_resource type="Script" uid="uid://66v7ps1a5u3x" path="res://scripts/state_machine.gd" id="4_x4b8f"]
+[ext_resource type="Script" uid="uid://xo2bp6yt00y7" path="res://scripts/player-states/grounded.gd" id="5_tmr53"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_paw1w"]
 texture = ExtResource("1_2venv")
@@ -28,12 +30,20 @@ tile_set = SubResource("TileSet_7r5hg")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1203405555]
 zoom = Vector2(3, 3)
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1259900401]
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1259900401]
 script = ExtResource("2_j6w7d")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=340212625]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=340212625]
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_7r5hg")
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1290532705]
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1290532705]
 texture = ExtResource("2_paw1w")
+
+[node name="State Machine" type="Node" parent="Player" unique_id=717637616 node_paths=PackedStringArray("_current_state")]
+script = ExtResource("4_x4b8f")
+_current_state = NodePath("Grounded")
+
+[node name="Grounded" type="Node" parent="Player/State Machine" unique_id=1710151840 node_paths=PackedStringArray("player")]
+script = ExtResource("5_tmr53")
+player = NodePath("../..")

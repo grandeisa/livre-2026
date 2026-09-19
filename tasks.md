@@ -2,12 +2,13 @@
 
 |  Task |  Type |  Est. time |  Done |
 |---|---|---|---|
-|  Player horizontal movement |  Programming |  30min |   |
+|  Player horizontal movement |  Programming |  30min |  x |
 |  Player jump |  Programming |  40min |   |
 |  Player health  |  Programming |  30min |   |
 |  Player attack |  Programming |  2h |   |
 |  Player heal  |  Programming |  1h |   |
 |   Player knockback  |  Programming |  2h |   |
+|   State machine system   |  Programming |  30min |  x |
 |   Multiplayer support   |  Programming |  2h |   |
 |    Join screen    |  Programming |  1h |   |
 |     Gather/make player sprites    |  Assets |  3h |   |
