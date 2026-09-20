@@ -3,9 +3,13 @@ extends State
 
 @export var player: Player
 
+func _ready() -> void:
+	player.current_acceleration = player.UNGROUNDED_ACCELERATION
+	player.got_knockback.connect(_on_knockback)
+	
+
 func _enter_state() -> void:
 	player.velocity.y = player.JUMP_VELOCITY
-	player.current_speed = player.UNGROUNDED_SPEED
 	
 	var explosion = Player.explosion_packed.instantiate()
 	
@@ -18,5 +22,10 @@ func _physics_update_state(delta: float) -> void:
 	if MultiInput.is_action_just_released("p_jump", player.device):
 		player.velocity.y = max(player.velocity.y, player.JUMP_MIN_VELOCITY_ON_JUMP_EARLY_STOP)
 	
-	if player.velocity.y >= 0.0:
-		start_transition("fall")
+	player.handle_horizontal_movement(delta)
+	
+	if player.is_on_floor():
+		start_transition("move")
+
+func _on_knockback(_a,_b) -> void:
+	start_transition('knockback')

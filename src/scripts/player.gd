@@ -3,8 +3,11 @@ class_name Player extends CharacterBody2D
 
 static var explosion_packed: PackedScene = preload("res://scenes/explosion.tscn")
 
-const GROUNDED_SPEED: float = 155.0
-const UNGROUNDED_SPEED: float = 125.0
+const DESIRED_SPEED: float = 155.0
+const ACCELERATION: float = 50.0
+const UNGROUNDED_ACCELERATION: float = 30.0
+const VELOCITY_STEER_FACTOR: float = 20.0
+
 const JUMP_VELOCITY = -300.0
 const JUMP_MIN_VELOCITY_ON_JUMP_EARLY_STOP = -100.0
 const GRAVITY = Vector2(0, 980.0)
@@ -26,25 +29,27 @@ var input_direction: Vector2 = Vector2.ZERO
 #endregion input
 
 var health_points: int = 10
-var current_speed: float = GROUNDED_SPEED
+var current_speed: float = DESIRED_SPEED
+var current_acceleration: float = ACCELERATION
 var current_gravity: Vector2 = GRAVITY
 var current_damage: int = 3
 var can_move: bool = true
 var can_heal: bool = true
 var can_attack: bool = true
 var time_without_atk = 0.0
+var invincible: bool = false
+
+signal got_knockback(direction: Vector2, force: float)
 
 func _process(delta: float) -> void:
 	input_direction = MultiInput.get_vector("p_left","p_right", "p_up", "p_down", device)
 	time_without_atk += delta
 
 func _physics_process(delta: float) -> void:
-	if can_move and input_direction.x:
-		velocity.x = input_direction.x * current_speed
+	if input_direction.x:
 		sprite.flip_h = input_direction.x < 0
 		heal_hitbox.position.x = abs(heal_hitbox.position.x) * (1 if input_direction.x > 0 else -1)
-	else:
-		velocity.x = move_toward(velocity.x, 0, current_speed)
+		
 	if not is_on_floor():
 		velocity += current_gravity * delta
 	move_and_slide()
@@ -61,9 +66,22 @@ func _physics_process(delta: float) -> void:
 		can_heal = true
 		heal_hitbox.visible = false
 
+func handle_horizontal_movement(delta: float) -> void:
+	var will_move: bool = input_direction.x != 0
+	var desired_velocity: float = input_direction.x * current_speed
+	
+	if abs(velocity.x) < current_speed and will_move:
+		velocity.x = lerp(velocity.x, desired_velocity, ACCELERATION * delta)
+	else:
+		velocity.x = lerp(velocity.x, desired_velocity, VELOCITY_STEER_FACTOR * delta)
+
+
 func take_damage(amount: int) -> void:
 	health_points -= amount
 	if health_points <= 0: Director.change_to_results_scene(id)
 
 func take_heal(amount: int) -> void:
 	health_points += amount
+	
+func apply_knockback(direction: Vector2, force: float) -> void:
+	got_knockback.emit(direction, force)
