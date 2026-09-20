@@ -7,7 +7,7 @@
 |  Player health  |  Programming |  30min |  x |
 |  Player attack |  Programming |  2h |  x |
 |  Player heal  |  Programming |  1h |  x |
-|   Player knockback  |  Programming |  2h |   |
+|   Player knockback  |  Programming |  2h |  x |
 |   State machine system   |  Programming |  30min |  x |
 |   Multiplayer support   |  Programming |  2h |  x |
 |    Join screen    |  Programming |  1h |   |
@@ -28,5 +28,4 @@
 |                Build Web               |  Submission |  30min |   |
 |                Build Windows                |  Submission |  1h |   |
 |                 Particles                |  Programming |  1h30 |   |
-|                 Coyote Time                |  Programming |  20min |   |
 
