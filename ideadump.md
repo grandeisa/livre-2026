@@ -49,4 +49,8 @@ Ok, new change
     - It clears when you jump
     - The force of the jump and the range of the explosion increase based on the gauge's value
 
-Because of that, healing is also merged with the knockback...
+Because of that, healing is also merged with the knockback…
+
+----
+Because of the recent change, it makes sense to make jumps not tied to being grounded, but to a minimum gauge value
+maybe the gauge could only go up when grounded to balance it

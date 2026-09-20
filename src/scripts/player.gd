@@ -10,6 +10,7 @@ const JUMP_MIN_VELOCITY_ON_JUMP_EARLY_STOP = -100.0
 const GRAVITY = Vector2(0, 980.0)
 
 const MAX_TIME_WITHOUT_ATK: float = 5.0
+const MIN_TIME_FOR_ATK: float = 0.5
 
 #region components
 @onready var sprite:Sprite2D = $Sprite2D
@@ -33,8 +34,9 @@ var can_heal: bool = true
 var can_attack: bool = true
 var time_without_atk = 0.0
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	input_direction = MultiInput.get_vector("p_left","p_right", "p_up", "p_down", device)
+	time_without_atk += delta
 
 func _physics_process(delta: float) -> void:
 	if can_move and input_direction.x:
