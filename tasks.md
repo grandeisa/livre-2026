@@ -5,11 +5,11 @@
 |  Player horizontal movement |  Programming |  30min |  x |
 |  Player jump |  Programming |  40min |  x |
 |  Player health  |  Programming |  30min |  x |
-|  Player attack |  Programming |  2h |   |
+|  Player attack |  Programming |  2h |  x |
 |  Player heal  |  Programming |  1h |  x |
 |   Player knockback  |  Programming |  2h |   |
 |   State machine system   |  Programming |  30min |  x |
-|   Multiplayer support   |  Programming |  2h |   |
+|   Multiplayer support   |  Programming |  2h |  x |
 |    Join screen    |  Programming |  1h |   |
 |     Gather/make player sprites    |  Assets |  3h |   |
 |      Gather/make tilemap     |  Assets |  3h |   |

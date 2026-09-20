@@ -36,3 +36,8 @@ Initially, this game could work like Stick Fight: The Game, and not have a set e
 - Could be interesting to use the knockback "power" to push randomized weapons onto other players to make them deal more damage
 - Undead characters could be a good theme
 - could i make this game with only black, white and one accent color per character?
+
+player attacks automatically after 5 seconds of no attacking
+player attack should probably have some use instead of just being a burden
+- right now, it only resets vertical speed so you could maybe use it to get away from danger a little
+there is a chance this game would be more fun if i inverted the heal and attack functions (it would still fit on the theme btw)
