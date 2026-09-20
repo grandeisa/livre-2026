@@ -7,17 +7,19 @@
 [ext_resource type="Script" uid="uid://cdv428ajfwhow" path="res://scripts/player-states/jump.gd" id="5_y4r1p"]
 [ext_resource type="Script" uid="uid://bpoji822stba6" path="res://scripts/player-states/fall.gd" id="6_d2wvv"]
 [ext_resource type="Texture2D" uid="uid://dfryj6u241ovf" path="res://sprites/placeholder-heal.png" id="7_fjrip"]
+[ext_resource type="Texture2D" uid="uid://48cqm36a11pl" path="res://sprites/placeholder-atk.png" id="8_smehm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7r5hg"]
 radius = 2.0
 height = 14.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7r5hg"]
-size = Vector2(24, 12)
+size = Vector2(32, 12)
 
-[node name="Player" type="CharacterBody2D" unique_id=1457206436 node_paths=PackedStringArray("heal_hitbox")]
+[node name="Player" type="CharacterBody2D" unique_id=1457206436 node_paths=PackedStringArray("heal_hitbox", "attack_hitbox")]
 script = ExtResource("1_tuyoq")
 heal_hitbox = NodePath("AimOrigin/Heal-Hitbox")
+attack_hitbox = NodePath("AimOrigin/Attack-Hitbox")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1874220503]
 position = Vector2(0, 1)
@@ -56,3 +58,16 @@ modulate = Color(1, 1, 1, 0.49803922)
 texture = ExtResource("7_fjrip")
 region_enabled = true
 region_rect = Rect2(3.7291183, 0.083086014, 24, 12)
+
+[node name="Attack-Hitbox" type="Area2D" parent="AimOrigin" unique_id=519402757]
+visible = false
+position = Vector2(0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AimOrigin/Attack-Hitbox" unique_id=1312211983]
+shape = SubResource("RectangleShape2D_7r5hg")
+
+[node name="Sprite2D" type="Sprite2D" parent="AimOrigin/Attack-Hitbox" unique_id=879128699]
+modulate = Color(1, 1, 1, 0.49803922)
+texture = ExtResource("8_smehm")
+region_enabled = true
+region_rect = Rect2(0, 0.083, 32, 12)

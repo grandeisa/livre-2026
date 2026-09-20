@@ -6,7 +6,7 @@
 |  Player jump |  Programming |  40min |  x |
 |  Player health  |  Programming |  30min |  x |
 |  Player attack |  Programming |  2h |   |
-|  Player heal  |  Programming |  1h |   |
+|  Player heal  |  Programming |  1h |  x |
 |   Player knockback  |  Programming |  2h |   |
 |   State machine system   |  Programming |  30min |  x |
 |   Multiplayer support   |  Programming |  2h |   |
@@ -22,7 +22,7 @@
 |         Itch.io page         |  Submission |  40min |   |
 |          Randomized level hazard system         |  Programming |  3h |   |
 |           Randomized spawning weapons system           |  Programming |  3h |   |
-|             Make levels loop at edges            |  Programming |  30h |   |
+|             Make levels loop at edges            |  Programming |  30min |   |
 |               Differentiate players              |  Programming |  2h |   |
 |               Build Linux               |  Submission |  30min |   |
 |                Build Web               |  Submission |  30min |   |

@@ -10,6 +10,7 @@ const GRAVITY = Vector2(0, 980.0)
 #region components
 @onready var sprite:Sprite2D = $Sprite2D
 @export var heal_hitbox: Area2D
+@export var attack_hitbox: Area2D
 #endregion
 
 #region input
@@ -22,6 +23,7 @@ var health_points: int = 10
 var current_speed: float = GROUNDED_SPEED
 var can_move: bool = true
 var can_heal: bool = true
+var can_attack: bool = true
 
 func _process(_delta: float) -> void:
 	input_direction = MultiInput.get_vector("p_left","p_right", "p_up", "p_down", device)
@@ -40,10 +42,23 @@ func _physics_process(delta: float) -> void:
 	if can_heal and MultiInput.is_action_just_pressed("p_heal", device):
 		can_heal = false
 		heal_hitbox.visible = true
-		for player: Player in heal_hitbox.get_overlapping_bodies():
+		for player in heal_hitbox.get_overlapping_bodies():
+			if player is not Player: continue
 			if player == self: continue
 			player.health_points += 2
 		
 		await get_tree().create_timer(0.1).timeout
 		can_heal = true
 		heal_hitbox.visible = false
+		
+	if can_attack and MultiInput.is_action_just_pressed("p_attack", device):
+		can_attack = false
+		attack_hitbox.visible = true
+		for player in attack_hitbox.get_overlapping_bodies():
+			if player is not Player: continue
+			if player == self: continue
+			player.health_points -= 1
+		
+		await get_tree().create_timer(0.1).timeout
+		can_attack = true
+		attack_hitbox.visible = false
