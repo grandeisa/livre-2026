@@ -3,8 +3,8 @@
 |  Task |  Type |  Est. time |  Done |
 |---|---|---|---|
 |  Player horizontal movement |  Programming |  30min |  x |
-|  Player jump |  Programming |  40min |   |
-|  Player health  |  Programming |  30min |   |
+|  Player jump |  Programming |  40min |  x |
+|  Player health  |  Programming |  30min |  x |
 |  Player attack |  Programming |  2h |   |
 |  Player heal  |  Programming |  1h |   |
 |   Player knockback  |  Programming |  2h |   |
