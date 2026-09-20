@@ -19,6 +19,7 @@ const MIN_TIME_FOR_ATK: float = 0.5
 @onready var sprite:Sprite2D = $Sprite2D
 @export var heal_hitbox: Area2D
 @export var foot: Node2D
+@export var aim_origin: Node2D
 #endregion
 
 #region input
@@ -39,7 +40,7 @@ var time_without_atk = 0.0
 var invincible: bool = false
 
 var heal_amount: int = 2
-var heal_knockback_force: float = 300.0
+var heal_knockback_force: float = 500.0
 var heal_cooldown: float = 0.6
 
 signal got_knockback(direction: Vector2, force: float)
@@ -51,13 +52,18 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	if input_direction.x:
 		sprite.flip_h = input_direction.x < 0
-		heal_hitbox.position.x = abs(heal_hitbox.position.x) * (1 if input_direction.x > 0 else -1)
+		#heal_hitbox.position.x = abs(heal_hitbox.position.x) * (1 if input_direction.x > 0 else -1)
+		
 		
 	if not is_on_floor():
 		velocity += current_gravity * delta
 	move_and_slide()
 	
 	if can_heal and MultiInput.is_action_just_pressed("p_heal", device):
+		if input_direction:
+			aim_origin.rotation = input_direction.angle()
+		else:
+			aim_origin.rotation = PI if sprite.flip_h else 0.0
 		heal_hitbox.activate()
 
 func handle_horizontal_movement(delta: float) -> void:

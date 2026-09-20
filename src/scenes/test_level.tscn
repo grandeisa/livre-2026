@@ -39,5 +39,5 @@ zoom = Vector2(3, 3)
 
 [node name="Player2" parent="." unique_id=869757558 instance=ExtResource("3_j6w7d")]
 position = Vector2(25, 1)
-device = 0
+device = 1
 id = 1

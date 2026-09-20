@@ -9,19 +9,29 @@ func _ready() -> void:
 	
 
 func _enter_state() -> void:
-	player.velocity.y = player.JUMP_VELOCITY
 	
 	var explosion = Player.explosion_packed.instantiate()
+	var gauge_fill = min(player.time_without_atk, player.MAX_TIME_WITHOUT_ATK) \
+		/ player.MAX_TIME_WITHOUT_ATK
+	
+	if gauge_fill == 1.0: gauge_fill += 1.0
+	gauge_fill += 0.5
+	player.velocity.y = player.JUMP_VELOCITY * (gauge_fill + 0.15)
 	
 	explosion.player_id = player.id
 	explosion.damage = player.current_damage
 	explosion.global_position = player.foot.global_position
+	
+	explosion.scale *= gauge_fill
+	explosion.force *= gauge_fill 
 	player.add_sibling(explosion)
+	
+	player.time_without_atk = 0.0
 	
 func _physics_update_state(delta: float) -> void:
 	if MultiInput.is_action_just_released("p_jump", player.device):
 		player.velocity.y = max(player.velocity.y, player.JUMP_MIN_VELOCITY_ON_JUMP_EARLY_STOP)
-	
+		
 	player.handle_horizontal_movement(delta)
 	
 	if player.is_on_floor():
