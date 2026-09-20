@@ -54,3 +54,6 @@ Because of that, healing is also merged with the knockback…
 ----
 Because of the recent change, it makes sense to make jumps not tied to being grounded, but to a minimum gauge value
 maybe the gauge could only go up when grounded to balance it
+
+----
+to save time, i'm going to use an outline shader and generate an outline color for each player

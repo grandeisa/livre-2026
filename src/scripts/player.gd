@@ -45,6 +45,18 @@ var heal_cooldown: float = 0.6
 
 signal got_knockback(direction: Vector2, force: float)
 
+func _ready() -> void:
+	
+	var color: Color = _generate_color(sprite.material.get_shader_parameter("outline_color"))
+	
+	sprite.material.set_shader_parameter("outline_color", color)
+	print(id)
+
+func _generate_color(color: Color) -> Color:
+	
+	color.h = float(id)/4.0
+	return color
+
 func _process(delta: float) -> void:
 	input_direction = MultiInput.get_vector("p_left","p_right", "p_up", "p_down", device)
 	time_without_atk += delta

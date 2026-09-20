@@ -15,6 +15,7 @@ radius = 2.0
 height = 14.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ur7pv"]
+resource_local_to_scene = true
 shader = ExtResource("1_ur7pv")
 shader_parameter/outline_color = Color(0.23800002, 0.68, 0.5179333, 1)
 
