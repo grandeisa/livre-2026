@@ -14,7 +14,7 @@ func _enter_state() -> void:
 	var gauge_fill = min(player.time_without_atk, player.current_max_time) \
 		/ player.current_max_time
 		
-	gauge_fill *= player.current_max_time / Player.MAX_TIME_WITHOUT_ATK + 0.1
+	gauge_fill *= min(player.current_max_time / Player.MAX_TIME_WITHOUT_ATK + 0.25, 1.0)
 	
 	if gauge_fill == 1.0: gauge_fill += 1.0
 	gauge_fill += 0.5

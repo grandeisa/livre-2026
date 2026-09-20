@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://b8ihcghdxi45i"]
+
+[ext_resource type="Script" uid="uid://q5tasl60hhvi" path="res://scripts/player_hud.gd" id="1_er5qu"]
+[ext_resource type="Texture2D" uid="uid://cwrfepatlo2v2" path="res://sprites/placeholder-bar.png" id="1_iraov"]
+[ext_resource type="Texture2D" uid="uid://c6mo07swkcbmg" path="res://sprites/placeholder-bar-content.png" id="2_er5qu"]
+
+[node name="PlayerHUD" type="VBoxContainer" unique_id=1573795794 node_paths=PackedStringArray("bar", "label")]
+offset_transform_enabled = true
+offset_transform_scale = Vector2(2, 2)
+alignment = 1
+script = ExtResource("1_er5qu")
+bar = NodePath("TextureProgressBar")
+label = NodePath("Label")
+
+[node name="Label" type="Label" parent="." unique_id=467140823]
+layout_mode = 2
+text = "Player X"
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=2049268681]
+layout_mode = 2
+size_flags_horizontal = 4
+offset_transform_enabled = true
+offset_transform_scale = Vector2(3, 3)
+value = 30.0
+texture_under = ExtResource("1_iraov")
+texture_progress = ExtResource("2_er5qu")

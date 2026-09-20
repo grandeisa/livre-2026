@@ -71,7 +71,7 @@ func _process(delta: float) -> void:
 	atk_gauge_bar.value = time_without_atk*2
 
 func _set_gauge_color() -> void:
-	var color: Color = lerp(Color.WHITE, Color.DARK_RED, (2*time_without_atk) / (current_max_time*2))
+	var color: Color = lerp(Color.WHITE, Color.DARK_RED, time_without_atk/ current_max_time)
 	atk_gauge_bar.modulate = color
 	
 func _physics_process(delta: float) -> void:
