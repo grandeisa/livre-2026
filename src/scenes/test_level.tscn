@@ -45,3 +45,5 @@ tile_set = SubResource("TileSet_7r5hg")
 zoom = Vector2(4, 4)
 position_smoothing_enabled = true
 position_smoothing_speed = 20.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1125412237]
