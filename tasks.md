@@ -28,4 +28,5 @@
 |                Build Web               |  Submission |  30min |   |
 |                Build Windows                |  Submission |  1h |   |
 |                 Particles                |  Programming |  1h30 |   |
+|                 Coyote Time                |  Programming |  20min |   |
 

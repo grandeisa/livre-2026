@@ -41,3 +41,12 @@ player attacks automatically after 5 seconds of no attacking
 player attack should probably have some use instead of just being a burden
 - right now, it only resets vertical speed so you could maybe use it to get away from danger a little
 there is a chance this game would be more fun if i inverted the heal and attack functions (it would still fit on the theme btw)
+
+---
+Ok, new change
+- Jumping and attacking are the same action (jumping leaves an explosion)
+- There is a gauge that fills while you don't jump
+    - It clears when you jump
+    - The force of the jump and the range of the explosion increase based on the gauge's value
+
+Because of that, healing is also merged with the knockback...

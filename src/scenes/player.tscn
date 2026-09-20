@@ -16,10 +16,11 @@ height = 14.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7r5hg"]
 size = Vector2(32, 12)
 
-[node name="Player" type="CharacterBody2D" unique_id=1457206436 node_paths=PackedStringArray("heal_hitbox", "attack_hitbox")]
+[node name="Player" type="CharacterBody2D" unique_id=1457206436 node_paths=PackedStringArray("heal_hitbox", "attack_hitbox", "foot")]
 script = ExtResource("1_tuyoq")
 heal_hitbox = NodePath("AimOrigin/Heal-Hitbox")
 attack_hitbox = NodePath("AimOrigin/Attack-Hitbox")
+foot = NodePath("Foot")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1874220503]
 position = Vector2(0, 1)
@@ -71,3 +72,6 @@ modulate = Color(1, 1, 1, 0.49803922)
 texture = ExtResource("8_smehm")
 region_enabled = true
 region_rect = Rect2(0, 0.083, 32, 12)
+
+[node name="Foot" type="Node2D" parent="." unique_id=861480168]
+position = Vector2(0, 8)

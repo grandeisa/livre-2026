@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://ddepvd1pa7xyx"]
+
+[ext_resource type="Texture2D" uid="uid://c8tp63j47hmp2" path="res://sprites/placeholder-explosion.png" id="1_17npe"]
+[ext_resource type="Script" uid="uid://3ih8h7km5ual" path="res://scripts/explosion.gd" id="1_nfeox"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q68ea"]
+radius = 16.0
+
+[node name="Explosion" type="Area2D" unique_id=479324808]
+script = ExtResource("1_nfeox")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1188526109]
+texture = ExtResource("1_17npe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=162936400]
+shape = SubResource("CircleShape2D_q68ea")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
