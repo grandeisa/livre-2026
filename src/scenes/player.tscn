@@ -2,25 +2,116 @@
 
 [ext_resource type="Script" uid="uid://cbtuxmi0bt671" path="res://scripts/player.gd" id="1_tuyoq"]
 [ext_resource type="Shader" uid="uid://cm6cu33rv66ju" path="res://shaders/pixel-art_outline.gdshader" id="1_ur7pv"]
-[ext_resource type="Texture2D" uid="uid://b3awclke3r58p" path="res://sprites/placeholder-character.png" id="2_fjrip"]
+[ext_resource type="Texture2D" uid="uid://dd6kprcof1m5f" path="res://sprites/player/idle.png" id="3_3v2ag"]
+[ext_resource type="Texture2D" uid="uid://wf0k43knu5ny" path="res://sprites/player/fall.png" id="3_jej6c"]
 [ext_resource type="Script" uid="uid://66v7ps1a5u3x" path="res://scripts/state_machine.gd" id="3_smehm"]
+[ext_resource type="Texture2D" uid="uid://5erb6s7on3cg" path="res://sprites/player/die.png" id="4_oprun"]
 [ext_resource type="Script" uid="uid://xo2bp6yt00y7" path="res://scripts/player-states/move.gd" id="4_ur7pv"]
 [ext_resource type="Script" uid="uid://cdv428ajfwhow" path="res://scripts/player-states/jump.gd" id="5_y4r1p"]
+[ext_resource type="Texture2D" uid="uid://dwp8bntebo3dn" path="res://sprites/player/knockback.png" id="6_a8ls1"]
 [ext_resource type="Script" uid="uid://c0hquewilxg6q" path="res://scripts/player-states/knockback.gd" id="6_smehm"]
+[ext_resource type="Texture2D" uid="uid://bi87qw4tttt0u" path="res://sprites/player/walk.png" id="7_a8ls1"]
 [ext_resource type="Texture2D" uid="uid://dfryj6u241ovf" path="res://sprites/placeholder-heal.png" id="7_fjrip"]
 [ext_resource type="Script" uid="uid://bg7n3jrbe0ptb" path="res://scripts/player_heal.gd" id="7_smehm"]
 [ext_resource type="Texture2D" uid="uid://cwrfepatlo2v2" path="res://sprites/placeholder-bar.png" id="10_d2wvv"]
 [ext_resource type="Texture2D" uid="uid://c6mo07swkcbmg" path="res://sprites/placeholder-bar-content.png" id="11_3v2ag"]
 [ext_resource type="AudioStream" uid="uid://cnag3k1wx0oh8" path="res://sfx/stink.ogg" id="12_3v2ag"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7r5hg"]
-radius = 2.0
-height = 14.0
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ur7pv"]
 resource_local_to_scene = true
 shader = ExtResource("1_ur7pv")
 shader_parameter/outline_color = Color(0.23800002, 0.68, 0.5179333, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfm1y"]
+atlas = ExtResource("4_oprun")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fulsm"]
+atlas = ExtResource("4_oprun")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4r5pv"]
+atlas = ExtResource("4_oprun")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60mlk"]
+atlas = ExtResource("4_oprun")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4ail"]
+atlas = ExtResource("7_a8ls1")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a38lo"]
+atlas = ExtResource("7_a8ls1")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7r5hg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_3v2ag")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_qfm1y")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_fulsm")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_4r5pv")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_60mlk")
+}],
+"loop": 1,
+"name": &"die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_jej6c")
+}],
+"loop": 1,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_3v2ag")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_a8ls1")
+}],
+"loop": 1,
+"name": &"knockback",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i4ail")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a38lo")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7r5hg"]
+radius = 6.0
+height = 18.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7r5hg"]
 size = Vector2(32, 12)
@@ -33,13 +124,16 @@ aim_origin = NodePath("AimOrigin")
 atk_gauge_bar = NodePath("Control/TextureProgressBar")
 death_audio_player = NodePath("DeathAudioStreamPlayer")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1874220503]
-position = Vector2(0, 1)
-shape = SubResource("CapsuleShape2D_7r5hg")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1573791792]
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1102488746]
 material = SubResource("ShaderMaterial_ur7pv")
-texture = ExtResource("2_fjrip")
+sprite_frames = SubResource("SpriteFrames_7r5hg")
+animation = &"walk"
+frame_progress = 0.78677255
+offset = Vector2(0, -4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1874220503]
+position = Vector2(1, 3)
+shape = SubResource("CapsuleShape2D_7r5hg")
 
 [node name="State Machine" type="Node" parent="." unique_id=1850475626 node_paths=PackedStringArray("_current_state")]
 script = ExtResource("3_smehm")
@@ -61,7 +155,7 @@ player = NodePath("../..")
 
 [node name="Heal-Hitbox" type="Area2D" parent="AimOrigin" unique_id=590240058 node_paths=PackedStringArray("player")]
 visible = false
-position = Vector2(12, 0)
+position = Vector2(23, 0)
 script = ExtResource("7_smehm")
 player = NodePath("../..")
 
@@ -85,9 +179,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -20.0
-offset_top = -20.0
+offset_top = -28.0
 offset_right = 20.0
-offset_bottom = 20.0
+offset_bottom = 12.0
 grow_horizontal = 2
 grow_vertical = 2
 

@@ -18,7 +18,7 @@ const MIN_TIME_FOR_ATK: float = 0.5
 const MAX_HEALTH_POINTS: int = 15
 
 #region components
-@onready var sprite:Sprite2D = $Sprite2D
+@onready var sprite:AnimatedSprite2D = $Sprite
 @export var heal_hitbox: Area2D
 @export var foot: Node2D
 @export var aim_origin: Node2D
@@ -61,7 +61,7 @@ func _process(delta: float) -> void:
 	
 	current_max_time = max(MAX_TIME_WITHOUT_ATK * (float(health_points)/MAX_HEALTH_POINTS), 0.6)
 	atk_gauge_bar.max_value = current_max_time *2
-	time_without_atk += delta
+	if can_move: time_without_atk += delta
 	_set_gauge_color()
 	atk_gauge_bar.value = time_without_atk*2
 	
@@ -90,6 +90,7 @@ func _physics_process(delta: float) -> void:
 		heal_hitbox.activate()
 
 func handle_horizontal_movement(delta: float) -> void:
+	if not can_move: return
 	var will_move: bool = input_direction.x != 0
 	var desired_velocity: float = input_direction.x * current_speed
 	
@@ -105,7 +106,10 @@ func take_damage(amount: int) -> void:
 		var camera: Camera2D = get_viewport().get_camera_2d()
 		camera.global_position = foot.global_position
 		camera.zoom = Vector2.ONE * 6
+		can_move = false
+		atk_gauge_bar.visible = false
 		death_audio_player.play()
+		sprite.play("die")
 		Director.change_to_results_scene(id)
 		
 

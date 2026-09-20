@@ -75,3 +75,12 @@ there was a suggestion to make the gauge max smaller based on your health → Wo
 - player join
 
 > probably going to attempt the mouth sfx achievement so it may be easier than using software to make it LOL
+
+
+----
+
+for the theming and sprites, i'm going with little white homunculi characters
+no visible arms or hands
+big heads
+- a nice reference would be Monster Kid
+- small torso, big head, long legs

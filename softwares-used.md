@@ -2,4 +2,6 @@
 - Markdown file editor: Zettlr 4.7.0
 - Pixel art editor: LibreSprite 1.2-dev
 - Version control: git 2.55.0
+- SFX: Audacity 3.7.9
+
 

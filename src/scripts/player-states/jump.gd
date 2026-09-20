@@ -4,7 +4,6 @@ extends State
 @export var player: Player
 
 func _ready() -> void:
-	player.current_acceleration = player.UNGROUNDED_ACCELERATION
 	player.got_knockback.connect(_on_knockback)
 	
 
@@ -31,6 +30,8 @@ func _enter_state() -> void:
 	player.add_sibling(explosion)
 	
 	player.time_without_atk = 0.0
+	if player.can_move:
+		player.sprite.play("fall")
 	
 func _physics_update_state(delta: float) -> void:
 	if MultiInput.is_action_just_released("p_jump", player.device):
@@ -40,6 +41,8 @@ func _physics_update_state(delta: float) -> void:
 	
 	if player.is_on_floor() or player.velocity.y >= 0.0:
 		start_transition("move")
+	elif not player.is_on_floor() and player.can_move:
+		player.sprite.play("fall")
 
 func _on_knockback(_a,_b) -> void:
 	start_transition('knockback')

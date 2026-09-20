@@ -6,10 +6,6 @@ extends State
 func _ready() -> void:
 	player.got_knockback.connect(_on_knockback)
 	
-
-func _enter_state() -> void:
-	player.current_acceleration = player.ACCELERATION
-
 func _physics_update_state(delta: float) -> void:
 	if (MultiInput.is_action_just_pressed("p_jump", player.device) and \
 		player.time_without_atk >= Player.MIN_TIME_FOR_ATK) \
@@ -17,6 +13,13 @@ func _physics_update_state(delta: float) -> void:
 		start_transition("jump")
 		
 	player.handle_horizontal_movement(delta)
+	if player.can_move:
+		if not player.is_on_floor():
+			player.sprite.play("fall")
+		elif player.input_direction.x:
+			player.sprite.play("walk")
+		else:
+			player.sprite.play("idle")
 	
 func _on_knockback(_a,_b) -> void:
 	start_transition('knockback')
