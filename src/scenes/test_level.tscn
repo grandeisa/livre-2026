@@ -42,3 +42,5 @@ tile_set = SubResource("TileSet_7r5hg")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1203405555]
 zoom = Vector2(4, 4)
+position_smoothing_enabled = true
+position_smoothing_speed = 20.0

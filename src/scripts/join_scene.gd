@@ -14,12 +14,12 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey:
-		if event.keycode == KEY_ENTER:
+		if event.keycode == KEY_C:
 			assign_id(-1)
 	elif event is InputEventJoypadButton:
 		if not event.pressed: return
 		
-		if abs(event.button_index) == JOY_BUTTON_START:
+		if abs(event.button_index) == JOY_BUTTON_A:
 			print(event.device)
 			assign_id(event.device)
 	
@@ -33,5 +33,5 @@ func assign_id(device: int) -> void:
 	join_containers[id].get_node("Label").text = "Player %d READY" % (id+1)
 	
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("m_start@all") and device_available.count(false) >= 2:
+	if Input.is_action_just_pressed("p_reset@all") and device_available.count(false) >= 2:
 		Director.change_to_test_level(device_list)

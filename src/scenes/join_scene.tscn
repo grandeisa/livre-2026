@@ -43,6 +43,6 @@ offset_top = -95.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 32
-text = "PRESS 'R' TO START"
+text = "PRESS 'ENTER' OR 'START' TO BEGIN"
 horizontal_alignment = 1
 vertical_alignment = 1

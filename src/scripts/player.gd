@@ -69,6 +69,9 @@ func _process(delta: float) -> void:
 	time_without_atk += delta
 	_set_gauge_color()
 	atk_gauge_bar.value = time_without_atk*2
+	
+	if health_points <= 0:
+		get_viewport().get_camera_2d().global_position = global_position
 
 func _set_gauge_color() -> void:
 	var color: Color = lerp(Color.WHITE, Color.DARK_RED, time_without_atk/ current_max_time)
@@ -100,10 +103,14 @@ func handle_horizontal_movement(delta: float) -> void:
 	else:
 		velocity.x = lerp(velocity.x, desired_velocity, VELOCITY_STEER_FACTOR * delta)
 
-
 func take_damage(amount: int) -> void:
 	health_points -= amount
-	if health_points <= 0: Director.change_to_results_scene(id)
+	if health_points <= 0:
+		var camera: Camera2D = get_viewport().get_camera_2d()
+		camera.global_position = foot.global_position
+		camera.zoom = Vector2.ONE * 6
+		Director.change_to_results_scene(id)
+		
 
 func take_heal(amount: int) -> void:
 	health_points += amount
@@ -111,3 +118,4 @@ func take_heal(amount: int) -> void:
 	
 func apply_knockback(direction: Vector2, force: float) -> void:
 	got_knockback.emit(direction, force)
+	

@@ -10,7 +10,7 @@
 |   Player knockback  |  Programming |  2h |  x |
 |   State machine system   |  Programming |  30min |  x |
 |   Multiplayer support   |  Programming |  2h |  x |
-|    Join screen    |  Programming |  1h |   |
+|    Join screen    |  Programming |  1h |  x |
 |     Gather/make player sprites    |  Assets |  3h |   |
 |      Gather/make tilemap     |  Assets |  3h |   |
 |      Level design      |  Game Design |  3h |   |

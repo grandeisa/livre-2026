@@ -6,17 +6,20 @@ extends Node
 var accepting_change:bool = true
 var _last_devices: Array[int]
 
-func change_to_results_scene(winner_id: int):
+func change_to_results_scene(winner_id: int, time_offset: float = 1.0):
 	if not accepting_change: return
 	accepting_change = false
 	var scene = result_screen.instantiate()
 	scene.winner_id = winner_id
+	Engine.time_scale = 0.2
+	await get_tree().create_timer(time_offset).timeout
 	get_tree().call_deferred("change_scene_to_node", scene)
+	Engine.time_scale = 1.0
 	
 func change_to_test_level(devices: Array[int] = []) -> void:
 	if devices.is_empty():
 		devices = _last_devices
-	
+	_last_devices = devices
 	var scene = test_level.instantiate()
 	get_tree().change_scene_to_node(scene)
 	var hud = scene.get_node("HUD")
