@@ -23,6 +23,7 @@ const MAX_HEALTH_POINTS: int = 15
 @export var foot: Node2D
 @export var aim_origin: Node2D
 @export var atk_gauge_bar: TextureProgressBar
+@export var death_audio_player: AudioStreamPlayer
 #endregion
 
 #region input
@@ -98,11 +99,13 @@ func handle_horizontal_movement(delta: float) -> void:
 		velocity.x = lerp(velocity.x, desired_velocity, VELOCITY_STEER_FACTOR * delta)
 
 func take_damage(amount: int) -> void:
+	if health_points <= 0: return
 	health_points -= amount
 	if health_points <= 0:
 		var camera: Camera2D = get_viewport().get_camera_2d()
 		camera.global_position = foot.global_position
 		camera.zoom = Vector2.ONE * 6
+		death_audio_player.play()
 		Director.change_to_results_scene(id)
 		
 

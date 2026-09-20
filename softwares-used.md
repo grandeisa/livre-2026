@@ -1,3 +1,5 @@
 - Engine: Godot Engine 4.7.2.stable
 - Markdown file editor: Zettlr 4.7.0
 - Pixel art editor: LibreSprite 1.2-dev
+- Version control: git 2.55.0
+

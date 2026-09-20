@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://cx31mx36sx8kb"]
 
+[ext_resource type="AudioStream" uid="uid://dbg8dtpurjaw3" path="res://sfx/tuturudu.ogg" id="1_y7kih"]
+
 [sub_resource type="GDScript" id="GDScript_4stdu"]
 script/source = "extends Control
 
@@ -56,3 +58,7 @@ Press R, Enter or Start to go again
 
 Press Esc or Back to return to join screen"
 horizontal_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=692685866]
+stream = ExtResource("1_y7kih")
+autoplay = true

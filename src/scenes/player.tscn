@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://bg7n3jrbe0ptb" path="res://scripts/player_heal.gd" id="7_smehm"]
 [ext_resource type="Texture2D" uid="uid://cwrfepatlo2v2" path="res://sprites/placeholder-bar.png" id="10_d2wvv"]
 [ext_resource type="Texture2D" uid="uid://c6mo07swkcbmg" path="res://sprites/placeholder-bar-content.png" id="11_3v2ag"]
+[ext_resource type="AudioStream" uid="uid://cnag3k1wx0oh8" path="res://sfx/stink.ogg" id="12_3v2ag"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7r5hg"]
 radius = 2.0
@@ -24,12 +25,13 @@ shader_parameter/outline_color = Color(0.23800002, 0.68, 0.5179333, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7r5hg"]
 size = Vector2(32, 12)
 
-[node name="Player" type="CharacterBody2D" unique_id=1457206436 node_paths=PackedStringArray("heal_hitbox", "foot", "aim_origin", "atk_gauge_bar")]
+[node name="Player" type="CharacterBody2D" unique_id=1457206436 node_paths=PackedStringArray("heal_hitbox", "foot", "aim_origin", "atk_gauge_bar", "death_audio_player")]
 script = ExtResource("1_tuyoq")
 heal_hitbox = NodePath("AimOrigin/Heal-Hitbox")
 foot = NodePath("Foot")
 aim_origin = NodePath("AimOrigin")
 atk_gauge_bar = NodePath("Control/TextureProgressBar")
+death_audio_player = NodePath("DeathAudioStreamPlayer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1874220503]
 position = Vector2(0, 1)
@@ -102,5 +104,8 @@ step = 0.25
 value = 30.0
 texture_under = ExtResource("10_d2wvv")
 texture_progress = ExtResource("11_3v2ag")
+
+[node name="DeathAudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1741181896]
+stream = ExtResource("12_3v2ag")
 
 [connection signal="body_entered" from="AimOrigin/Heal-Hitbox" to="AimOrigin/Heal-Hitbox" method="_on_body_entered"]

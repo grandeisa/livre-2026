@@ -62,4 +62,16 @@ to save time, i'm going to use an outline shader and generate an outline color f
 what if i made the players cooldown after getting more than max health until it goes down? → No, too easy to get a player stuck
 
 ----
-there was a suggestion to make the gauge max smaller based on your health
+there was a suggestion to make the gauge max smaller based on your health → Worked nice but needs balancing
+
+----
+
+### sounds needed
+
+- explosion
+- heal
+- burn (collide with explosion)
+- win
+- player join
+
+> probably going to attempt the mouth sfx achievement so it may be easier than using software to make it LOL
