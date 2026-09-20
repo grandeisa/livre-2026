@@ -9,6 +9,7 @@ extends CanvasLayer
 var player_hud_list: Array = []
 
 func _ready() -> void:
+	player_hud_list.resize(5)
 	visible = true
 	for player: Player in _players:
 		var new_hud = player_hud.instantiate()
@@ -16,7 +17,7 @@ func _ready() -> void:
 		new_hud.label.text = "Player %d" % (player.id+1)
 		new_hud.bar.max_value = Player.MAX_HEALTH_POINTS
 		_huds_container.add_child(new_hud)
-		player_hud_list.append(new_hud)
+		player_hud_list[player.id] = new_hud
 		
 
 func _process(_delta: float) -> void:

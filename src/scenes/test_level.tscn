@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://bub5u1k4esaq8" path="res://sprites/placeholder-tile.png" id="1_2venv"]
 [ext_resource type="Script" uid="uid://lxtnvkjpp3br" path="res://scripts/hud.gd" id="1_ahbqi"]
 [ext_resource type="PackedScene" uid="uid://b8ihcghdxi45i" path="res://scenes/player_hud.tscn" id="2_x4b8f"]
-[ext_resource type="PackedScene" uid="uid://dyx2li4wp43m8" path="res://scenes/player.tscn" id="3_j6w7d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_paw1w"]
 texture = ExtResource("1_2venv")
@@ -18,9 +17,8 @@ sources/0 = SubResource("TileSetAtlasSource_paw1w")
 
 [node name="TestLevel" type="Node2D" unique_id=1354510782]
 
-[node name="HUD" type="CanvasLayer" parent="." unique_id=1361134685 node_paths=PackedStringArray("_players", "_huds_container")]
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1361134685 node_paths=PackedStringArray("_huds_container")]
 script = ExtResource("1_ahbqi")
-_players = [NodePath("../Player"), NodePath("../Player2")]
 _huds_container = NodePath("HBoxContainer")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HUD" unique_id=652719726]
@@ -44,10 +42,3 @@ tile_set = SubResource("TileSet_7r5hg")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1203405555]
 zoom = Vector2(4, 4)
-
-[node name="Player" parent="." unique_id=1457206436 instance=ExtResource("3_j6w7d")]
-
-[node name="Player2" parent="." unique_id=869757558 instance=ExtResource("3_j6w7d")]
-position = Vector2(25, 1)
-device = 1
-id = 1

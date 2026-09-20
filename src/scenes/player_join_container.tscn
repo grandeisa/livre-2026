@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://c4rinx6kpnbam"]
+
+[node name="JoinContainer" type="PanelContainer" unique_id=1991410217]
+custom_minimum_size = Vector2(256, 256)
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="." unique_id=1245692804]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "PRESS ENTER/START TO JOIN"
+horizontal_alignment = 1
+vertical_alignment = 1

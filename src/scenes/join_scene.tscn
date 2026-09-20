@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://6ph4theywwce"]
+
+[ext_resource type="Script" uid="uid://bcxhh1bkthuix" path="res://scripts/join_scene.gd" id="1_1l7o0"]
+[ext_resource type="PackedScene" uid="uid://c4rinx6kpnbam" path="res://scenes/player_join_container.tscn" id="2_pnwvy"]
+
+[node name="JoinScene" type="Control" unique_id=724060719]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1l7o0")
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=1254733053]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+
+[node name="JoinContainer" parent="GridContainer" unique_id=1991410217 instance=ExtResource("2_pnwvy")]
+layout_mode = 2
+
+[node name="JoinContainer2" parent="GridContainer" unique_id=1170451186 instance=ExtResource("2_pnwvy")]
+layout_mode = 2
+
+[node name="JoinContainer3" parent="GridContainer" unique_id=616432524 instance=ExtResource("2_pnwvy")]
+layout_mode = 2
+
+[node name="JoinContainer4" parent="GridContainer" unique_id=328555389 instance=ExtResource("2_pnwvy")]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="." unique_id=145362494]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -95.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "PRESS 'R' TO START"
+horizontal_alignment = 1
+vertical_alignment = 1
