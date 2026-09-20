@@ -18,7 +18,6 @@ const MIN_TIME_FOR_ATK: float = 0.5
 #region components
 @onready var sprite:Sprite2D = $Sprite2D
 @export var heal_hitbox: Area2D
-@export var attack_hitbox: Area2D
 @export var foot: Node2D
 #endregion
 
@@ -39,6 +38,10 @@ var can_attack: bool = true
 var time_without_atk = 0.0
 var invincible: bool = false
 
+var heal_amount: int = 2
+var heal_knockback_force: float = 300.0
+var heal_cooldown: float = 0.6
+
 signal got_knockback(direction: Vector2, force: float)
 
 func _process(delta: float) -> void:
@@ -55,16 +58,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	if can_heal and MultiInput.is_action_just_pressed("p_heal", device):
-		can_heal = false
-		heal_hitbox.visible = true
-		for player in heal_hitbox.get_overlapping_bodies():
-			if player is not Player: continue
-			if player == self: continue
-			player.health_points += 2
-		
-		await get_tree().create_timer(5.0).timeout
-		can_heal = true
-		heal_hitbox.visible = false
+		heal_hitbox.activate()
 
 func handle_horizontal_movement(delta: float) -> void:
 	var will_move: bool = input_direction.x != 0
