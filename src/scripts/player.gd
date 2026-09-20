@@ -15,6 +15,8 @@ const GRAVITY = Vector2(0, 980.0)
 const MAX_TIME_WITHOUT_ATK: float = 5.0
 const MIN_TIME_FOR_ATK: float = 0.5
 
+const MAX_HEALTH_POINTS: int = 15
+
 #region components
 @onready var sprite:Sprite2D = $Sprite2D
 @export var heal_hitbox: Area2D
@@ -38,6 +40,7 @@ var can_move: bool = true
 var can_heal: bool = true
 var can_attack: bool = true
 var time_without_atk = 0.0
+var current_max_time: float = MAX_TIME_WITHOUT_ATK
 var invincible: bool = false
 
 var heal_amount: int = 2
@@ -46,10 +49,11 @@ var heal_cooldown: float = 0.6
 
 signal got_knockback(direction: Vector2, force: float)
 
+var _color: Color = Color.WHITE
+
 func _ready() -> void:
-	var color: Color = _generate_color(sprite.material.get_shader_parameter("outline_color"))
-	
-	sprite.material.set_shader_parameter("outline_color", color)
+	_color = _generate_color(sprite.material.get_shader_parameter("outline_color"))
+	sprite.material.set_shader_parameter("outline_color", _color)
 	atk_gauge_bar.max_value = MAX_TIME_WITHOUT_ATK*2
 	atk_gauge_bar.value = 0.0
 
@@ -59,12 +63,15 @@ func _generate_color(color: Color) -> Color:
 
 func _process(delta: float) -> void:
 	input_direction = MultiInput.get_vector("p_left","p_right", "p_up", "p_down", device)
+	
+	current_max_time = max(MAX_TIME_WITHOUT_ATK * (float(health_points)/MAX_HEALTH_POINTS), 0.6)
+	atk_gauge_bar.max_value = current_max_time *2
 	time_without_atk += delta
 	_set_gauge_color()
 	atk_gauge_bar.value = time_without_atk*2
 
 func _set_gauge_color() -> void:
-	var color: Color = lerp(Color.WHITE, Color.DARK_RED, (2*time_without_atk) / (MAX_TIME_WITHOUT_ATK*2))
+	var color: Color = lerp(Color.WHITE, Color.DARK_RED, (2*time_without_atk) / (current_max_time*2))
 	atk_gauge_bar.modulate = color
 	
 func _physics_process(delta: float) -> void:
@@ -100,6 +107,7 @@ func take_damage(amount: int) -> void:
 
 func take_heal(amount: int) -> void:
 	health_points += amount
+	health_points = min(health_points, MAX_HEALTH_POINTS)
 	
 func apply_knockback(direction: Vector2, force: float) -> void:
 	got_knockback.emit(direction, force)

@@ -11,8 +11,10 @@ func _ready() -> void:
 func _enter_state() -> void:
 	
 	var explosion = Player.explosion_packed.instantiate()
-	var gauge_fill = min(player.time_without_atk, player.MAX_TIME_WITHOUT_ATK) \
-		/ player.MAX_TIME_WITHOUT_ATK
+	var gauge_fill = min(player.time_without_atk, player.current_max_time) \
+		/ player.current_max_time
+		
+	gauge_fill *= player.current_max_time / Player.MAX_TIME_WITHOUT_ATK + 0.1
 	
 	if gauge_fill == 1.0: gauge_fill += 1.0
 	gauge_fill += 0.5
@@ -24,6 +26,8 @@ func _enter_state() -> void:
 	
 	explosion.scale *= gauge_fill
 	explosion.force *= gauge_fill 
+	#explosion.get_node("Sprite2D").material = player.sprite.material
+	explosion.modulate = player._color
 	player.add_sibling(explosion)
 	
 	player.time_without_atk = 0.0

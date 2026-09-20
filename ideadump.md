@@ -57,3 +57,9 @@ maybe the gauge could only go up when grounded to balance it
 
 ----
 to save time, i'm going to use an outline shader and generate an outline color for each player
+
+----
+what if i made the players cooldown after getting more than max health until it goes down? → No, too easy to get a player stuck
+
+----
+there was a suggestion to make the gauge max smaller based on your health

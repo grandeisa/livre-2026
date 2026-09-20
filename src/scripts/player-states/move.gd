@@ -13,7 +13,7 @@ func _enter_state() -> void:
 func _physics_update_state(delta: float) -> void:
 	if (MultiInput.is_action_just_pressed("p_jump", player.device) and \
 		player.time_without_atk >= Player.MIN_TIME_FOR_ATK) \
-		or player.time_without_atk > Player.MAX_TIME_WITHOUT_ATK:
+		or player.time_without_atk > player.current_max_time:
 		start_transition("jump")
 		
 	player.handle_horizontal_movement(delta)
