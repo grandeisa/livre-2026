@@ -18,6 +18,8 @@ func _ready() -> void:
 		new_hud.bar.max_value = Player.MAX_HEALTH_POINTS
 		_huds_container.add_child(new_hud)
 		player_hud_list[player.id] = new_hud
+		await player.ready
+		new_hud.label.modulate = Director.player_colors[player.id]
 		
 
 func _process(_delta: float) -> void:

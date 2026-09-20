@@ -7,6 +7,7 @@ var device_list: Array[int] = []
 var device_available: Array[bool] = [true, true, true, true]
 
 func _ready() -> void:
+	Director.generate_player_colors()
 	device_list.resize(4)
 	device_list.fill(-2)
 	
@@ -31,6 +32,7 @@ func assign_id(device: int) -> void:
 	device_list[id] = device
 	
 	join_containers[id].get_node("Label").text = "Player %d READY" % (id+1)
+	join_containers[id].modulate = Director.player_colors[id]
 	
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("p_reset@all") and device_available.count(false) >= 2:

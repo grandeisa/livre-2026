@@ -27,7 +27,7 @@ func _enter_state() -> void:
 	explosion.scale *= gauge_fill
 	explosion.force *= gauge_fill 
 	#explosion.get_node("Sprite2D").material = player.sprite.material
-	explosion.modulate = player._color
+	explosion.modulate = Director.player_colors[player.id]
 	player.add_sibling(explosion)
 	
 	player.time_without_atk = 0.0

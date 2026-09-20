@@ -49,17 +49,11 @@ var heal_cooldown: float = 0.6
 
 signal got_knockback(direction: Vector2, force: float)
 
-var _color: Color = Color.WHITE
-
 func _ready() -> void:
-	_color = _generate_color(sprite.material.get_shader_parameter("outline_color"))
-	sprite.material.set_shader_parameter("outline_color", _color)
+	sprite.material.set_shader_parameter("outline_color", Director.player_colors[id])
 	atk_gauge_bar.max_value = MAX_TIME_WITHOUT_ATK*2
 	atk_gauge_bar.value = 0.0
 
-func _generate_color(color: Color) -> Color:
-	color.h = float(id)/4.0
-	return color
 
 func _process(delta: float) -> void:
 	input_direction = MultiInput.get_vector("p_left","p_right", "p_up", "p_down", device)

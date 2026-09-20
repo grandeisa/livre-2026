@@ -18,6 +18,7 @@ sources/0 = SubResource("TileSetAtlasSource_paw1w")
 [node name="TestLevel" type="Node2D" unique_id=1354510782]
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1361134685 node_paths=PackedStringArray("_huds_container")]
+process_priority = 10
 script = ExtResource("1_ahbqi")
 _huds_container = NodePath("HBoxContainer")
 
