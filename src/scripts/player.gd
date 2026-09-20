@@ -20,6 +20,7 @@ const MIN_TIME_FOR_ATK: float = 0.5
 @export var heal_hitbox: Area2D
 @export var foot: Node2D
 @export var aim_origin: Node2D
+@export var atk_gauge_bar: TextureProgressBar
 #endregion
 
 #region input
@@ -46,21 +47,26 @@ var heal_cooldown: float = 0.6
 signal got_knockback(direction: Vector2, force: float)
 
 func _ready() -> void:
-	
 	var color: Color = _generate_color(sprite.material.get_shader_parameter("outline_color"))
 	
 	sprite.material.set_shader_parameter("outline_color", color)
-	print(id)
+	atk_gauge_bar.max_value = MAX_TIME_WITHOUT_ATK*2
+	atk_gauge_bar.value = 0.0
 
 func _generate_color(color: Color) -> Color:
-	
 	color.h = float(id)/4.0
 	return color
 
 func _process(delta: float) -> void:
 	input_direction = MultiInput.get_vector("p_left","p_right", "p_up", "p_down", device)
 	time_without_atk += delta
+	_set_gauge_color()
+	atk_gauge_bar.value = time_without_atk*2
 
+func _set_gauge_color() -> void:
+	var color: Color = lerp(Color.WHITE, Color.DARK_RED, (2*time_without_atk) / (MAX_TIME_WITHOUT_ATK*2))
+	atk_gauge_bar.modulate = color
+	
 func _physics_process(delta: float) -> void:
 	if input_direction.x:
 		sprite.flip_h = input_direction.x < 0

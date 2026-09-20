@@ -9,6 +9,8 @@
 [ext_resource type="Script" uid="uid://c0hquewilxg6q" path="res://scripts/player-states/knockback.gd" id="6_smehm"]
 [ext_resource type="Texture2D" uid="uid://dfryj6u241ovf" path="res://sprites/placeholder-heal.png" id="7_fjrip"]
 [ext_resource type="Script" uid="uid://bg7n3jrbe0ptb" path="res://scripts/player_heal.gd" id="7_smehm"]
+[ext_resource type="Texture2D" uid="uid://cwrfepatlo2v2" path="res://sprites/placeholder-bar.png" id="10_d2wvv"]
+[ext_resource type="Texture2D" uid="uid://c6mo07swkcbmg" path="res://sprites/placeholder-bar-content.png" id="11_3v2ag"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7r5hg"]
 radius = 2.0
@@ -22,11 +24,12 @@ shader_parameter/outline_color = Color(0.23800002, 0.68, 0.5179333, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7r5hg"]
 size = Vector2(32, 12)
 
-[node name="Player" type="CharacterBody2D" unique_id=1457206436 node_paths=PackedStringArray("heal_hitbox", "foot", "aim_origin")]
+[node name="Player" type="CharacterBody2D" unique_id=1457206436 node_paths=PackedStringArray("heal_hitbox", "foot", "aim_origin", "atk_gauge_bar")]
 script = ExtResource("1_tuyoq")
 heal_hitbox = NodePath("AimOrigin/Heal-Hitbox")
 foot = NodePath("Foot")
 aim_origin = NodePath("AimOrigin")
+atk_gauge_bar = NodePath("Control/TextureProgressBar")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1874220503]
 position = Vector2(0, 1)
@@ -71,5 +74,32 @@ region_rect = Rect2(3.7291183, 0.083086014, 24, 12)
 
 [node name="Foot" type="Node2D" parent="." unique_id=861480168]
 position = Vector2(0, 8)
+
+[node name="Control" type="Control" parent="." unique_id=16044297]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Control" unique_id=1693103243]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -8.0
+offset_right = 8.0
+offset_bottom = 16.0
+grow_horizontal = 2
+value = 30.0
+texture_under = ExtResource("10_d2wvv")
+texture_progress = ExtResource("11_3v2ag")
 
 [connection signal="body_entered" from="AimOrigin/Heal-Hitbox" to="AimOrigin/Heal-Hitbox" method="_on_body_entered"]

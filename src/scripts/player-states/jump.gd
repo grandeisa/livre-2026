@@ -34,7 +34,7 @@ func _physics_update_state(delta: float) -> void:
 		
 	player.handle_horizontal_movement(delta)
 	
-	if player.is_on_floor():
+	if player.is_on_floor() or player.velocity.y >= 0.0:
 		start_transition("move")
 
 func _on_knockback(_a,_b) -> void:

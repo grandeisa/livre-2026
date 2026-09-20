@@ -23,9 +23,10 @@
 |          Randomized level hazard system         |  Programming |  3h |   |
 |           Randomized spawning weapons system           |  Programming |  3h |   |
 |             Make levels loop at edges            |  Programming |  30min |   |
-|               Differentiate players              |  Programming |  2h |   |
+|               Differentiate players              |  Programming |  2h |  x |
 |               Build Linux               |  Submission |  30min |   |
 |                Build Web               |  Submission |  30min |   |
 |                Build Windows                |  Submission |  1h |   |
 |                 Particles                |  Programming |  1h30 |   |
+|                 Tutorial                |  Design |  2h |   |
 
