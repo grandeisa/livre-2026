@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://q5tasl60hhvi" path="res://scripts/player_hud.gd" id="1_er5qu"]
 [ext_resource type="Texture2D" uid="uid://cwrfepatlo2v2" path="res://sprites/placeholder-bar.png" id="1_iraov"]
 [ext_resource type="Texture2D" uid="uid://c6mo07swkcbmg" path="res://sprites/placeholder-bar-content.png" id="2_er5qu"]
+[ext_resource type="Texture2D" uid="uid://xe3pal2qrvg4" path="res://sprites/placeholder-bar-under.png" id="2_or0tx"]
 
 [node name="PlayerHUD" type="VBoxContainer" unique_id=1573795794 node_paths=PackedStringArray("bar", "label")]
 offset_transform_enabled = true
@@ -27,6 +28,7 @@ offset_transform_scale = Vector2(3, 3)
 min_value = -1.0
 max_value = 15.0
 value = 5.0
+texture_under = ExtResource("2_or0tx")
 texture_over = ExtResource("1_iraov")
 texture_progress = ExtResource("2_er5qu")
 tint_progress = Color(1, 0.13999999, 0.13999999, 1)
