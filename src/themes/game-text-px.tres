@@ -1,0 +1,8 @@
+[gd_resource type="Theme" format=3 uid="uid://btx35yxdjv0kk"]
+
+[ext_resource type="FontFile" uid="uid://t22p02e18e47" path="res://fonts/raster-forge-font/RasterForgeRegular-JpBgm.ttf" id="1_rposb"]
+
+[resource]
+BoxContainer/constants/separation = 12
+Label/font_sizes/font_size = 32
+Label/fonts/font = ExtResource("1_rposb")

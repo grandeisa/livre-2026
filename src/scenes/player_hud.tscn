@@ -2,12 +2,13 @@
 
 [ext_resource type="Script" uid="uid://q5tasl60hhvi" path="res://scripts/player_hud.gd" id="1_er5qu"]
 [ext_resource type="Texture2D" uid="uid://cwrfepatlo2v2" path="res://sprites/placeholder-bar.png" id="1_iraov"]
+[ext_resource type="Theme" uid="uid://btx35yxdjv0kk" path="res://themes/game-text-px.tres" id="1_qcjqi"]
 [ext_resource type="Texture2D" uid="uid://c6mo07swkcbmg" path="res://sprites/placeholder-bar-content.png" id="2_er5qu"]
 [ext_resource type="Texture2D" uid="uid://xe3pal2qrvg4" path="res://sprites/placeholder-bar-under.png" id="2_or0tx"]
 
 [node name="PlayerHUD" type="VBoxContainer" unique_id=1573795794 node_paths=PackedStringArray("bar", "label")]
-offset_transform_enabled = true
 offset_transform_scale = Vector2(2, 2)
+theme = ExtResource("1_qcjqi")
 alignment = 1
 script = ExtResource("1_er5qu")
 bar = NodePath("TextureProgressBar")
@@ -15,6 +16,17 @@ label = NodePath("Label")
 
 [node name="Label" type="Label" parent="." unique_id=467140823]
 layout_mode = 2
+theme = ExtResource("1_qcjqi")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+text = "Player X"
+
+[node name="Label2" type="Label" parent="." unique_id=1757527083]
+visible = false
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_scale = Vector2(2, 2)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
@@ -24,7 +36,7 @@ text = "Player X"
 layout_mode = 2
 size_flags_horizontal = 4
 offset_transform_enabled = true
-offset_transform_scale = Vector2(3, 3)
+offset_transform_scale = Vector2(6, 6)
 min_value = -1.0
 max_value = 15.0
 value = 5.0

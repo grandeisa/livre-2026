@@ -1,10 +1,14 @@
 [gd_scene format=3 uid="uid://c4rinx6kpnbam"]
 
+[ext_resource type="Theme" uid="uid://btx35yxdjv0kk" path="res://themes/game-text-px.tres" id="1_4n0c5"]
+
 [node name="JoinContainer" type="PanelContainer" unique_id=1991410217]
 custom_minimum_size = Vector2(256, 256)
 size_flags_horizontal = 3
+theme = ExtResource("1_4n0c5")
 
 [node name="Label" type="Label" parent="." unique_id=1245692804]
+custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Press C on keyboard or
@@ -13,3 +17,4 @@ to JOIN
 "
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
