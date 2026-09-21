@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="LIVRE GAME JAM 2026"
+config/name="DAREDEVILS"
 run/main_scene="uid://6ph4theywwce"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
