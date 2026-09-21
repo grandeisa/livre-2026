@@ -75,7 +75,7 @@ func _set_gauge_color() -> void:
 	atk_gauge_bar.modulate = color
 	
 func _physics_process(delta: float) -> void:
-	if input_direction.x:
+	if input_direction.x and health_points > 0:
 		sprite.flip_h = input_direction.x < 0
 		#heal_hitbox.position.x = abs(heal_hitbox.position.x) * (1 if input_direction.x > 0 else -1)
 		
