@@ -11,6 +11,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1l7o0")
+no_join_text = "Press T to play on WASD
+Press O to play on Arrows
+Press Cross/A to play on Controller
+
+JOIN"
 
 [node name="GridContainer" type="GridContainer" parent="." unique_id=1254733053]
 layout_mode = 1

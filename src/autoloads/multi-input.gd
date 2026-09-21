@@ -60,6 +60,15 @@ func get_vector(negative_x: StringName, positive_x: StringName,\
 		positive_y = _get_joy_action_name(positive_y, device)
 	return Input.get_vector(negative_x, positive_x, negative_y, positive_y)
 
+func get_device_name(device: int) -> String:
+	match device:
+		-1:
+			return "Keyboard (Arrow Keys)"
+		-2: 
+			return "Keyboard (WASD)"
+		_:
+			return ("Controller %d" % (device+1)) if device >= 0 else "UNKNOWN DEVICE"
+
 #####
 
 func _ready() -> void:

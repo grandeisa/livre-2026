@@ -36,7 +36,7 @@ func change_to_test_level(devices: Array[int] = []) -> void:
 	var hud = scene.get_node("HUD")
 	
 	for i in range(0, len(devices)):
-		if devices[i] == -2: continue
+		if devices[i] == -100: continue
 		var player: Player = player_packed.instantiate()
 		player.id = i
 		player.device = devices[i]
