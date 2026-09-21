@@ -11,6 +11,7 @@ var winner_id: int = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	winner_label.text = \"Player %d won!\" % (winner_id+1)
+	winner_label.modulate = Director.player_colors[winner_id]
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed(\"p_reset@all\"):
