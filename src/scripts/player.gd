@@ -17,6 +17,8 @@ const MIN_TIME_FOR_ATK: float = 0.5
 
 const MAX_HEALTH_POINTS: int = 15
 
+const ON_DIE_BOUNCE: float = -200.0
+
 #region components
 @onready var sprite:AnimatedSprite2D = $Sprite
 @export var heal_hitbox: Area2D
@@ -80,6 +82,11 @@ func _physics_process(delta: float) -> void:
 		
 	if not is_on_floor():
 		velocity += current_gravity * delta
+	elif health_points <= 0:
+		var signx = -sign(velocity.x)
+		if not signx: signx = -1 if randi() % 2 else 1
+		velocity.y = ON_DIE_BOUNCE
+		velocity.x = ON_DIE_BOUNCE * signx * randf_range(0.25, 1.0)
 	move_and_slide()
 	
 	if can_heal and MultiInput.is_action_just_pressed("p_heal", device):
